@@ -108,10 +108,10 @@ python imu_simulation.py
 
 | Task | Assignee | Status |
 |---|---|---|
-| Simulation Environment Setup | Ivana Anto | ✅ Done |
-| IMU Simulation | Ivana Anto | ✅ Done |
-| Camera Simulation | Ivana Anto | 🔄 In Progress |
-| A2RL Race Track 3D Environment | Anjela Joseph | ⬜ To Do |
+| Simulation Environment Setup | Ivana Anto |  Done |
+| IMU Simulation | Ivana Anto | Done |
+| Camera Simulation | Ivana Anto |  In Progress |
+| A2RL Race Track 3D Environment | Anjela Joseph |  To Do |
 
 ---
 
