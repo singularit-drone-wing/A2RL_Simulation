@@ -20,29 +20,29 @@
 
 ## Installation — Windows
 
-### Step 1 — Enable Long Path Support
+### Step 1 Enable Long Path Support
 1. Press Win + R, type regedit, right-click → Run as administrator
 2. Navigate to: HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\FileSystem
 3. Double-click LongPathsEnabled, change value from 0 to 1
 4. Restart your computer
 
-### Step 2 — Install Python 3.11
+### Step 2  Install Python 3.11
 Download from: https://www.python.org/downloads/release/python-3113/
 - Choose Windows installer (64-bit)
 - Check "Add Python to PATH" during installation
 
-### Step 3 — Create Virtual Environment
+### Step 3 Create Virtual Environment
 ```bash
 py -3.11 -m venv crazyflow-env
 "C:\Users\YourName\crazyflow-env\Scripts\activate"
 ```
 
-### Step 4 — Install Crazyflow
+### Step 4  Install Crazyflow
 ```bash
 pip install crazyflow
 ```
 
-### Step 5 — Clone and Install
+### Step 5  Clone and Install
 ```bash
 git clone https://github.com/ivanantok/A2RL_Simulation.git
 cd A2RL_Simulation
@@ -51,7 +51,7 @@ pip install -e .
 
 ---
 
-## Installation — Linux (Ubuntu)
+## Installation  Linux (Ubuntu)
 
 ```bash
 sudo apt update
