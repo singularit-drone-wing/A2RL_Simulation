@@ -119,7 +119,7 @@ python imu_simulation.py
 
 | Issue | Fix |
 |---|---|
-| SSL Certificate Error | Use mobile hotspot or --trusted-host flags |
+| SSL Certificate Error | Use mobile hotspot or trusted host flags |
 | Long Path error on Windows | Enable LongPathsEnabled in registry |
 | Warp import warnings | Safe to ignore |
-| Level 2/3 drone crashes | Expected — default controller limitation |
+| Level 2/3 drone crashes | Expected  default controller limitation |
