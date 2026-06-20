@@ -1,80 +1,125 @@
-# Autonomous Drone Racing Challenge
+# A2RL Drone Racing Simulation
 
-<div align="center">
-  <a href="https://github.com/learnsyslab/crazyflow">
-    <img width="800" height="450" src="docs/img/race.gif">
-  </a>
-  <br/>
-  <sub><sup style="font-size: 0.8em;"><a href="https://github.com/learnsyslab/crazyflow">Powered by Crazyflow</a></sup></sub>
-  </br>
-  </br>
-</div>
-
-[![Python Version]][Python Version URL] [![Ruff Check]][Ruff Check URL] [![Documentation Status]][Documentation Status URL] [![Tests]][Tests URL]
-
-[Python Version]: https://img.shields.io/badge/python-3.10%20%7C%203.11%20%7C%203.12-blue  
-[Python Version URL]: https://www.python.org  
-
-[Ruff Check]: https://github.com/learnsyslab/lsy_drone_racing/actions/workflows/ruff.yml/badge.svg?style=flat-square  
-[Ruff Check URL]: https://github.com/learnsyslab/lsy_drone_racing/actions/workflows/ruff.yml  
-
-[Documentation Status]: https://readthedocs.org/projects/lsy-drone-racing/badge/?version=latest  
-[Documentation Status URL]: https://lsy-drone-racing.readthedocs.io/en/latest/?badge=latest  
-
-[Tests]: https://github.com/learnsyslab/lsy_drone_racing/actions/workflows/testing.yml/badge.svg  
-[Tests URL]: https://github.com/learnsyslab/lsy_drone_racing/actions/workflows/testing.yml  
+**Team:** Simulation Team  
+**Competition:** Abu Dhabi Autonomous Racing League (A2RL)  
+**Simulator:** Crazyflow (JAX-based drone physics simulator)  
 
 ---
 
-## Introduction
+## System Requirements
 
-**LSY Drone Racing** is a course project designed to help you develop and evaluate autonomous drone racing algorithms — both in simulation and on real Crazyflie hardware.  
-Whether you’re new to drones or an experienced developer, this project provides a structured and practical way to explore high-speed autonomy, control, and perception in dynamic environments.
+| Requirement | Details |
+|---|---|
+| Operating System | Windows 10/11 (64-bit) or Ubuntu Linux 20.04+ |
+| Python Version | 3.11 exactly |
+| RAM | Minimum 8GB recommended |
+| GPU | Not required for simulation (CPU is sufficient) |
+| Internet | Required for initial installation |
 
 ---
 
-## Documentation
+## Installation — Windows
 
-To get started, visit our [official documentation](https://lsy-drone-racing.readthedocs.io/en/latest/getting_started/general.html).
+### Step 1 — Enable Long Path Support
+1. Press Win + R, type regedit, right-click → Run as administrator
+2. Navigate to: HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\FileSystem
+3. Double-click LongPathsEnabled, change value from 0 to 1
+4. Restart your computer
+
+### Step 2 — Install Python 3.11
+Download from: https://www.python.org/downloads/release/python-3113/
+- Choose Windows installer (64-bit)
+- Check "Add Python to PATH" during installation
+
+### Step 3 — Create Virtual Environment
+```bash
+py -3.11 -m venv crazyflow-env
+"C:\Users\YourName\crazyflow-env\Scripts\activate"
+```
+
+### Step 4 — Install Crazyflow
+```bash
+pip install crazyflow
+```
+
+### Step 5 — Clone and Install
+```bash
+git clone https://github.com/ivanantok/A2RL_Simulation.git
+cd A2RL_Simulation
+pip install -e .
+```
 
 ---
 
-## Dependencies
+## Installation — Linux (Ubuntu)
 
-This project builds upon several open-source packages developed by the [Learning Systems Lab (LSY)](https://www.ce.cit.tum.de/lsy/home/) at TUM.  
-You can explore these related projects:
+```bash
+sudo apt update
+sudo apt install python3.11 python3.11-venv python3.11-pip git -y
+python3.11 -m venv crazyflow-env
+source crazyflow-env/bin/activate
+pip install crazyflow
+git clone https://github.com/ivanantok/A2RL_Simulation.git
+cd A2RL_Simulation
+pip install -e .
+```
 
-- [**crazyflow**](https://github.com/learnsyslab/crazyflow) – A high-speed, high-fidelity drone simulator with strong sim-to-real performance.  
-- [**drone-models**](https://github.com/learnsyslab/drone-models) – A collection of accurate drone models for simulation and model-based control.  
-- [**drone-controllers**](https://github.com/learnsyslab/drone-controllers) – Controllers for the Crazyflie quadrotor.  
+---
+
+## Running the Simulation
+
+```bash
+python scripts/sim.py --config level0.toml
+```
+
+## Running IMU Simulation
+
+```bash
+python imu_simulation.py
+```
 
 ---
 
 ## Difficulty Levels
 
-Each task setup — from track design to physics configuration — is defined by a TOML file (e.g., [`level0.toml`](config/level0.toml)).  
-The configuration files specify progressive difficulty levels from easy (0) to hard (3):
-
-|      Evaluation Scenario      | Rand. Inertial Properties | Randomized Obstacles, Gates | Random Tracks |             Notes              |
-| :---------------------------: | :-----------------------: | :-------------------------: | :-----------: | :----------------------------: |
-| [Level 0](config/level0.toml) |           *No*            |            *No*             |     *No*      |       Perfect knowledge        |
-| [Level 1](config/level1.toml) |          **Yes**          |            *No*             |     *No*      |        Adaptive control        |
-| [Level 2](config/level2.toml) |          **Yes**          |           **Yes**           |     *No*      |          Re-planning           |
-| [Level 3](config/level3.toml) |          **Yes**          |           **Yes**           |    **Yes**    |        Online planning         |
-|         **sim2real**          |     **Real hardware**     |           **Yes**           |    **Yes**    | Simulation-to-reality transfer |
+| Level | Config File | Description |
+|---|---|---|
+| 0 | level0.toml | Fixed gates, easiest |
+| 1 | level1.toml | Slightly randomized |
+| 2 | level2.toml | Randomized gate positions |
+| 3 | level3.toml | Full randomization, hardest |
 
 ---
 
-## Online Competition
+## Official A2RL Track Specifications(to be confirmed)
 
-Throughout the semester, teams in the course will compete to achieve the fastest autonomous race completion times. 
-Competition results visible in the [competition branch](https://github.com/learnsyslab/lsy_drone_racing/tree/competition).
-
-> **Note:** Competition results **do not** directly affect your course grade.  
-> However, they provide valuable feedback on the performance and robustness of your approach compared to others.
-
-The competition environment always uses **difficulty level 2**.  
-If your code fails the automated tests, it is likely to encounter the same issues in our evaluation environment.  
-For full details, refer to the [documentation](https://lsy-drone-racing.readthedocs.io/en/latest/).
+| Specification | Details |
+|---|---|
+| Arena size | 100m x 30m |
+| Number of gates | 11 |
+| Gate outer size | 2.13m x 2.13m |
+| Gate inner opening | 1.52m x 1.52m |
+| Gate design | High contrast color coded |
+| Drag race format | 83m straight with 4 sequential gates |
 
 ---
+
+## Team Task Breakdown
+
+| Task | Assignee | Status |
+|---|---|---|
+| Simulation Environment Setup | Ivana Anto | ✅ Done |
+| IMU Simulation | Ivana Anto | ✅ Done |
+| Camera Simulation | Ivana Anto | 🔄 In Progress |
+| A2RL Race Track 3D Environment | Anjela Joseph | ⬜ To Do |
+
+---
+
+## Known Issues
+
+| Issue | Fix |
+|---|---|
+| SSL Certificate Error | Use mobile hotspot or --trusted-host flags |
+| Long Path error on Windows | Enable LongPathsEnabled in registry |
+| Warp import warnings | Safe to ignore |
+| Level 2/3 drone crashes | Expected — default controller limitation |
