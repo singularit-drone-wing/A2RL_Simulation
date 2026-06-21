@@ -44,7 +44,7 @@ pip install crazyflow
 
 ### Step 5  Clone and Install
 ```bash
-git clone https://github.com/ivanantok/A2RL_Simulation.git
+git clone https://github.com/singularit-drone-wing/A2RL_Simulation.git
 cd A2RL_Simulation
 pip install -e .
 ```
