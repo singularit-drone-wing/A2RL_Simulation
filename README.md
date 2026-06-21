@@ -59,7 +59,7 @@ sudo apt install python3.11 python3.11-venv python3.11-pip git -y
 python3.11 -m venv crazyflow-env
 source crazyflow-env/bin/activate
 pip install crazyflow
-git clone git clone https://github.com/singularit-drone-wing/A2RL_Simulation.git
+git clone https://github.com/singularit-drone-wing/A2RL_Simulation.git
 cd A2RL_Simulation
 pip install -e .
 ```
