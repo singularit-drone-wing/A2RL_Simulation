@@ -77,6 +77,11 @@ python scripts/sim.py --config level0.toml
 ```bash
 python imu_simulation.py
 ```
+## Running Camera Simulation
+
+```bash
+python camera_simulation.py
+```
 
 ---
 
@@ -111,7 +116,7 @@ python imu_simulation.py
 | Simulation Environment Setup | Ivana Anto |  Done |
 | IMU Simulation | Ivana Anto | Done |
 | Camera Simulation | Ivana Anto |  In Progress |
-| A2RL Race Track 3D Environment | Anjela Joseph |  In progress |
+| A2RL Race Track 3D Environment | Anjela Joseph |  To Do |
 
 ---
 
