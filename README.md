@@ -44,7 +44,7 @@ pip install crazyflow
 
 ### Step 5  Clone and Install
 ```bash
-git clone https://github.com/ivanantok/A2RL_Simulation.git
+git clone https://github.com/singularit-drone-wing/A2RL_Simulation.git
 cd A2RL_Simulation
 pip install -e .
 ```
@@ -111,7 +111,7 @@ python imu_simulation.py
 | Simulation Environment Setup | Ivana Anto |  Done |
 | IMU Simulation | Ivana Anto | Done |
 | Camera Simulation | Ivana Anto |  In Progress |
-| A2RL Race Track 3D Environment | Anjela Joseph |  To Do |
+| A2RL Race Track 3D Environment | Anjela Joseph |  In progress |
 
 ---
 
