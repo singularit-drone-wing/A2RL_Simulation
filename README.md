@@ -111,7 +111,7 @@ python imu_simulation.py
 | Simulation Environment Setup | Ivana Anto |  Done |
 | IMU Simulation | Ivana Anto | Done |
 | Camera Simulation | Ivana Anto |  In Progress |
-| A2RL Race Track 3D Environment | Anjela Joseph |  To Do |
+| A2RL Race Track 3D Environment | Anjela Joseph |  In progress |
 
 ---
 
