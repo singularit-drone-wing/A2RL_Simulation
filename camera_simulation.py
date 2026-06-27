@@ -28,7 +28,7 @@ for step in range(20):
     sim.state_control(cmd)
     sim.step(sim.freq // sim.control_freq)
 
-    renderer.update_scene(sim.mj_data)
+    renderer.update_scene(sim.mj_data, camera="fpv_cam:0")
     image = renderer.render()
 
     print(f"Step {step:02d} | Image shape: {image.shape} | "
